@@ -83,8 +83,19 @@ art_forca = ["""
     |___           
     """]
 
-objetos = 'faca carteira mouse teclado caneta copo garrafa pulseira relogio'.split()
-animais = 'girafa elefante babuino cavalo cachorro guepardo jaguatirica camelo dromedario'.split()
+objetos = ['faca', 'carteira', 'mouse', 'teclado', 'caneta', 'copo', 'garrafa', 'pulseira', 'relogio',
+'telefone', 'notebook','celular']
+
+animais = ['girafa', 'elefante', 'babuino', 'cavalo', 'cachorro', 'gato', 'guepardo', 'jaguatirica',
+'camelo', 'dromedario', 'pombo', 'papagaio', 'vaca', 'humano', 'cobra']
+
+profissoes = ['dentista', 'professor', 'médico', 'arquiteto', 'engenheiro', 'bombeiro', 'policial', 'paramédico',
+'socorrista', 'jornalista', 'jornaleiro', 'motorista', 'atendente', 'piloto', 'vendedor', 'lojista', 'garçom',
+'garçonete', 'prefeito', 'assessor', 'consultor', 'desenvolvedor', 'programador']
+
+cphumano = ['orelha', 'olho', 'boca', 'braço', 'perna', 'espinha', 'cabeça', 'mao',
+'pele', 'maxilar', 'bochecha', 'pescoço', 'coxa']
+
 jogadas = vitorias = 0
 usuario = tema = ' '
 
@@ -126,6 +137,8 @@ def main():
 
         if not jogando:  # Se nao estiver jogando,
             if repetir_jogo():  # Pergunta se quer jogar novament, se sim:
+                if trocar_tema():
+                    tema = input('TEMA: |OBJETOS, ANIMAIS, PROFISSOES| \n').upper()
                 jogadas += 1  # Atribuicao de jogadas para controle futuro
                 letras_erradas = ''  # Reiniciando variavel de erros
                 letras_acertadas = ''  # Reiniciando variavel de acertos
@@ -138,9 +151,13 @@ def main():
 def gera_secreta():  # Funcao para gerar palavra aleatoria dentro do tema escolhido
     global objetos, animais
     if tema == 'OBJETOS':
-        return random.choice(objetos)
+        return objetos[random.randint(0, (len(objetos)-1))]
     elif tema == 'ANIMAIS':
-        return random.choice(animais)
+        return animais[random.randint(0, (len(animais)-1))]
+    elif tema == 'PROFISSOES':
+        return profissoes[random.randint(0, (len(profissoes)-1))]
+    elif tema == 'CORPO HUMANO':
+        return cphumano[random.randint(0, (len(cphumano)-1))]
 
 
 def impressao_espaco(palavra):  # Funcao para impressao com espacos
@@ -175,13 +192,17 @@ def atribuicao_palpite(palpite_usuario):
         elif palpite in palpite_usuario:  # Verifica se usuario entrou com palpite repetido
             print('Voce ja digitou essa letra, digite de novo!')
         elif not 'A' <= palpite <= 'Z':  # Verifica se esta dentro do alfbeto
-            print('Digitee somente uma letra!')
+            print('Digite somente uma letra!')
         else:
             return palpite  # Caso cumpra todos os requisitos, retorna palpite
 
 
 def repetir_jogo():
     return input("Voce quer jogar novamente? (SIM ou NAO)\n").upper().startswith('S')  # Retorna resposta do usuario
+
+
+def trocar_tema():
+    return input("Voce quer trocar o tema? (SIM ou NAO)\n").upper().startswith('S')  # Retorna resposta do usuario
 
 
 def checa_vitoria(secreta, letras_acertadas):
