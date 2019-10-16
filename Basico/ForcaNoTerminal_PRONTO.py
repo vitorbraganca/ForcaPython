@@ -104,7 +104,7 @@ def main():
     global art_forca, jogadas, vitorias, usuario, tema  # Chamando variaveis para a funcao
     print('JOGO DA FORCA')
     usuario = input('Digite seu nome de usuario: ')  # Lendo nome do usuario
-    tema = input('TEMA: |OBJETOS, ANIMAIS| \n')
+    tema = input('TEMA: |OBJETOS (0), ANIMAIS (1), PROFISSOES (2), CORPO HUMANO (3)| \n')
     tema = tema.upper()
     jogadas += 1  # Atribuindo jogada
     letras_erradas = ''  # variavel para letras erradas
@@ -138,7 +138,7 @@ def main():
         if not jogando:  # Se nao estiver jogando,
             if repetir_jogo():  # Pergunta se quer jogar novament, se sim:
                 if trocar_tema():
-                    tema = input('TEMA: |OBJETOS, ANIMAIS, PROFISSOES| \n').upper()
+                    tema = input('TEMA: |OBJETOS (0), ANIMAIS (1), PROFISSOES (2), CORPO HUMANO (3)| \n')
                 jogadas += 1  # Atribuicao de jogadas para controle futuro
                 letras_erradas = ''  # Reiniciando variavel de erros
                 letras_acertadas = ''  # Reiniciando variavel de acertos
@@ -150,13 +150,13 @@ def main():
 
 def gera_secreta():  # Funcao para gerar palavra aleatoria dentro do tema escolhido
     global objetos, animais
-    if tema == 'OBJETOS':
+    if tema == 'OBJETOS' or tema == '0':
         return objetos[random.randint(0, (len(objetos)-1))]
-    elif tema == 'ANIMAIS':
+    elif tema == 'ANIMAIS' or tema == '1':
         return animais[random.randint(0, (len(animais)-1))]
-    elif tema == 'PROFISSOES':
+    elif tema == 'PROFISSOES' or tema == '2':
         return profissoes[random.randint(0, (len(profissoes)-1))]
-    elif tema == 'CORPO HUMANO':
+    elif tema == 'CORPO HUMANO' or tema == '3':
         return cphumano[random.randint(0, (len(cphumano)-1))]
 
 
