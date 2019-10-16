@@ -1,0 +1,14 @@
+-- TEMAS E PALAVRAS SECRETAS DO JOGO: --
+
+->> profissoes = ['dentista', 'professor', 'médico', 'arquiteto', 'engenheiro', 'bombeiro', 'policial', 'paramédico',
+'socorrista', 'jornalista', 'jornaleiro', 'motorista', 'atendente', 'piloto', 'vendedor', 'lojista', 'garçom',
+'garçonete', 'prefeito', 'assessor', 'consultor', 'desenvolvedor', 'programador']
+
+->> objetos = ['faca', 'carteira', 'mouse', 'teclado', 'caneta', 'copo', 'garrafa', 'pulseira', 'relogio',
+'telefone', 'notebook','celular']
+
+->> animais = ['girafa', 'elefante', 'babuino', 'cavalo', 'cachorro', 'gato', 'guepardo', 'jaguatirica',
+'camelo', 'dromedario', 'pombo', 'papagaio', 'vaca', 'humano', 'cobra']
+
+->> cphumano = ['orelha', 'olho','boca', 'braço', 'perna', 'espinha', 'cabeça', 'mao',
+'pele', 'maxilar', 'bochecha', 'pescoço', 'coxa']
