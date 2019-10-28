@@ -149,14 +149,22 @@ def main():
 
 
 def gera_secreta():  # Funcao para gerar palavra aleatoria dentro do tema escolhido
-    global objetos, animais
+    global objetos, animais, tema
     if tema == 'OBJETOS' or tema == '0':
+        tema = 'OBJETOS'
+        return tema
         return objetos[random.randint(0, (len(objetos)-1))]
     elif tema == 'ANIMAIS' or tema == '1':
+        tema = 'ANIMAIS'
+        return tema
         return animais[random.randint(0, (len(animais)-1))]
     elif tema == 'PROFISSOES' or tema == '2':
+        tema = 'PROFISSOES'
+        return tema
         return profissoes[random.randint(0, (len(profissoes)-1))]
     elif tema == 'CORPO HUMANO' or tema == '3':
+        tema = 'CORPO HUMANO'
+        return tema
         return cphumano[random.randint(0, (len(cphumano)-1))]
 
 
@@ -172,6 +180,7 @@ def impressao_jogo(letras_erradas, letras_acertadas, secreta):  # Funcao para im
     global art_forca  # defi uma variavel global
     print(art_forca[len(letras_erradas)] + '\n')  # Impressao da forca de acordo com erros do usuario
 
+    print(f'TEMA ATUAL: {tema}')
     print("Letras Erradas:", end = ' ')  # Impressao das letras erradas que o usuario digitou
     impressao_espaco(letras_erradas)  # Usando funcao para impressao com espacos
 
