@@ -152,19 +152,15 @@ def gera_secreta():  # Funcao para gerar palavra aleatoria dentro do tema escolh
     global objetos, animais, tema
     if tema == 'OBJETOS' or tema == '0':
         tema = 'OBJETOS'
-        return tema
         return objetos[random.randint(0, (len(objetos)-1))]
     elif tema == 'ANIMAIS' or tema == '1':
         tema = 'ANIMAIS'
-        return tema
         return animais[random.randint(0, (len(animais)-1))]
     elif tema == 'PROFISSOES' or tema == '2':
         tema = 'PROFISSOES'
-        return tema
         return profissoes[random.randint(0, (len(profissoes)-1))]
     elif tema == 'CORPO HUMANO' or tema == '3':
         tema = 'CORPO HUMANO'
-        return tema
         return cphumano[random.randint(0, (len(cphumano)-1))]
 
 
